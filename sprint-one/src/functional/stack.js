@@ -9,7 +9,6 @@ var Stack = function(){
   someInstance.push = function(value){
     count++;
     storage[count] = value;
-    console.log(storage[count])
   };
 
   someInstance.pop = function(){
@@ -20,7 +19,6 @@ var Stack = function(){
     }
     return removed;
   };
-console.log('after pop', storage[count])
   someInstance.size = function(){
     return count;
   };

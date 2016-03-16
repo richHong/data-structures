@@ -17,21 +17,33 @@ var Queue = function(){
     count++;
     //set storage key to count and storage property to value
     storage[count] = value;
-    console.log('this is storage after enqueue', storage)
+    // console.log('value is',value)
+     console.log('this is storage after enqueue', storage)
   };
 
   someInstance.dequeue = function(){
-    console.log("this is storage before dequeue", storage)
+    console.log("this is storage before dequeue", storage[reverseCount])
+    //declare a varible to assign the item that we are going to delete
     var removed = storage[reverseCount];
+    //delete the item
     delete storage[reverseCount];
+    //conditional state that determines whether count is above zero
     if(count !== 0){
+      //reduces the varible count by one
       count--
     }
-    reverseCount++;
+    //increases reverseCount by one
+    if(count === 0){
+      reverseCount = 1;
+    } else {
+      reverseCount++;
+    }
+    //returns the deleted element
     return removed;
   };
 
   someInstance.size = function(){
+    //returns count
     return count;
   };
 
