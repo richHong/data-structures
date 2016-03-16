@@ -1,12 +1,30 @@
 var Queue = function(){
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var instantObj = {};
-
-  return instantObj;
+  var obj = {};
+  obj.storage = {};
+  obj.count = 0;
+  obj.reverseCount = 1;
+  _.extend(obj, queueMethods);
+  return obj;
 
 };
 
-var queueMethods = {};
+var queueMethods = {
+  enqueue: function(value){
+    this.count++
+    this.storage[this.count] = value;
+  },
+  dequeue: function(value){
+    var remove = this.storage[this.reverseCount];
+    delete this.storage[this.reverseCount];
+    this.reverseCount++;
+    return remove;
+  },
+  size: function(){
+    return Object.keys(this.storage).length
+  }
+
+};
 
 
