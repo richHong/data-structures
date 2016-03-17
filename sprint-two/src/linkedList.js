@@ -3,15 +3,18 @@ var LinkedList = function(){
   list.head = null;
   list.tail = null;
 
+
   list.addToTail = function(value){
+    list.tail = new Node(value);
   };
 
   list.removeHead = function(){
+    delete list.head;
   };
 
   list.contains = function(target){
   };
-
+  console.log("This is tail", list);
   return list;
 };
 
