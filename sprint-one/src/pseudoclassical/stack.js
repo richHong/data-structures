@@ -5,17 +5,19 @@ var Stack = function() {
 this.count = 0;
 this.storage = {};
 this.remove;
-this.pop = pop;
-this.size = size;
-this.push = push;
+// this.pop = pop;
+// this.size = size;
+// this.push = push;
 };
 
-var push = function(value){
+
+
+Stack.prototype.push = function(value){
   this.count++;
   this.storage[this.count] = value;
 };
 
-var pop = function(){
+Stack.prototype.pop = function(){
   this.remove  = this.storage[this.count];
   delete this.storage[this.count];
   if (this.count !== 0){
@@ -24,6 +26,6 @@ var pop = function(){
   return this.remove;
 };
 
- var size = function(){
+ Stack.prototype.size = function(){
   return this.count;
 };
