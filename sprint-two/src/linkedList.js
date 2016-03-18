@@ -18,7 +18,7 @@ var LinkedList = function(){
   list.removeHead = function(){
     var remove = list.head.value
     list.head.value = list.head.next;
-    console.log('remove:', remove)
+    //console.log('remove:', remove)
     return remove;
   };
 
@@ -33,7 +33,7 @@ var LinkedList = function(){
     })
     return result;
   };
-  console.log("This is tail", list);
+  //console.log("This is tail", list);
   return list;
 };
 

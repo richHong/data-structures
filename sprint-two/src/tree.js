@@ -23,12 +23,20 @@ treeMethods.addChild = function(value){
 
 treeMethods.contains = function(target){
   var theTruth = false
-  _.each(this.children, function(child){
-    if(child.value === target){
+
+  var helper = function(node){
+
+    if(node.value === target){
       theTruth = true;
     }
-    child.contains(target);
-  });
+    _.each(node.children, function(child){
+      helper(child);
+    })
+  };
+
+  helper(this);
+
+  
   return theTruth
 };
 
