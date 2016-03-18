@@ -24,10 +24,10 @@ treeMethods.addChild = function(value){
 treeMethods.contains = function(target){
   var theTruth = false
   _.each(this.children, function(child){
-    console.log(list)
     if(child.value === target){
       theTruth = true;
     }
+    child.contains(target);
   });
   return theTruth
 };
