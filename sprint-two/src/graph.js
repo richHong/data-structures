@@ -54,7 +54,7 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 Graph.prototype.removeEdge = function(fromNode, toNode){
   _.each(this.nodes[fromNode].edge, function(edge1, index1, list){
     if (edge1 === toNode){
-      console.log('edge1', list)
+      //console.log('edge1', list)
       // this.nodes[fromNode].edge.splice(index1,1);
       list.splice(index1, 1);
     } 
