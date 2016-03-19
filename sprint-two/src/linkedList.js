@@ -2,22 +2,28 @@ var LinkedList = function(){
   var list = {};
   list.head = null;
   list.tail = null;
+  list.count = 0;
+  list.headCount = 0;
 
 
   list.addToTail = function(value){
   if (list.tail === null){
-    list.tail = new Node(value);
-    list.head = list.tail;
+    list[list.count] = new Node(value);
+    list.tail = list[list.count];
+    list.head = list[list.count];
   } else {
-    var temp = new Node(value);
-    list.tail.next = temp.value;
-    list.tail = temp;
+    list.count++;
+    list[list.count] = new Node(value);
+    list.tail.next = list[list.count].value;
+    list.tail = list[list.count];
   }
   };
 
   list.removeHead = function(){
     var remove = list.head.value;
-    list.head.value = list.head.next;
+    delete list[list.headCount];
+    list.headCount++;
+    list.head = list[list.headCount];
     return remove;
   };
 
