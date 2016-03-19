@@ -7,33 +7,32 @@ var LinkedList = function(){
   list.addToTail = function(value){
   if (list.tail === null){
     list.tail = new Node(value);
-    list.head = list.tail//{};
+    list.head = list.tail;
   } else {
-    list.head.value = list.tail.value;
-    list.tail = new Node(value);
-    list.head.next = list.tail.value;
+    var temp = new Node(value);
+    list.tail.next = temp.value;
+    list.tail = temp;
   }
   };
 
   list.removeHead = function(){
-    var remove = list.head.value
+    var remove = list.head.value;
     list.head.value = list.head.next;
-    //console.log('remove:', remove)
     return remove;
   };
 
   list.contains = function(target){
     var result = false;
-    _.each(list, function(val, key, list){
-      _.each(val, function(val2, key2, list2){
-        if(val2 === target){
+    _.each(list, function(obj, key, list){
+      _.each(obj, function(val, key2, list2){
+        if(val === target){
           result = true;
         }
-      })
-    })
+      });
+    });
     return result;
   };
-  //console.log("This is tail", list);
+
   return list;
 };
 
