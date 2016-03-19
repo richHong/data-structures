@@ -6,26 +6,18 @@ var HashTable = function(){
 
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
-  //var bucket = this._storage.get(i);
+  var bucket = this._storage.get(i);
   if (this._holder.length === 0) {
     this._storage.set(i,[[k,v]]);
     this._holder.push(k);
   } else if (_.contains(this._holder, k)) {
-      this._storage.each(function(bucket, index, storage) {
-        if(index === i){
-          _.each(bucket, function(array, index){
-            if (k === array[0]){
-              array[1] = v;
-            }
-          });
-        }
-      });
-  } else {
-    this._storage.each(function(bucket, index, storage){
-      if(index === i) {
-            bucket.push([k,v])
-      }    
+    _.each(bucket, function(array, index){
+      if (k === array[0]){
+        array[1] = v;
+      }
     });
+  } else {
+    bucket.push([k,v])
   }
 };
 
