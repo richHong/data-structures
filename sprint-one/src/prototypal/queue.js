@@ -9,16 +9,19 @@ var Queue = function() {
 };
 
 var queueMethods = {
+
   enqueue: function(value){
     this.count++;
     this.storage[this.count] = value;
   },
+
   dequeue: function(){
     var remove = this.storage[this.reverseCount];
     delete this.storage[this.reverseCount];
     this.reverseCount++;
     return remove;
   },
+  
   size: function(){
     return Object.keys(this.storage).length;
   }

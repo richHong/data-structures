@@ -8,18 +8,21 @@ var Stack = function() {
 };
 
 var stackMethods = {
+
   push: function(value){  
-    this.count++
+    this.count++;
     this.storage[this.count] = value;
   },
+
   pop: function(){
     var remove = this.storage[this.count];
-    delete this.storage[this.count]
+    delete this.storage[this.count];
     if(this.count !== 0){
       this.count--;
     }
     return remove;
   },
+  
   size: function(){
     return this.count;
   },

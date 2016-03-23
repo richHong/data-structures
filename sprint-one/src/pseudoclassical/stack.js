@@ -5,9 +5,7 @@ var Stack = function() {
 this.count = 0;
 this.storage = {};
 this.remove;
-// this.pop = pop;
-// this.size = size;
-// this.push = push;
+
 };
 
 
